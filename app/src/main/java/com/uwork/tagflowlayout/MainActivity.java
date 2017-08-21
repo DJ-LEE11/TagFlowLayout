@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private CustomTagLayout mTagLayout;
     private EditText mEtInput;
-    private Button mBtnAdd;
+    private LinearLayout mLlAdd;
 
     // 存放标签数据的数组
     String[] mTextStr = { "nba","cba"};
@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
     private void initView() {
         mTagLayout = (CustomTagLayout) findViewById(R.id.tagLayout);
         mEtInput = (EditText) LayoutInflater.from(this).inflate(R.layout.edit_text, null);
-        mBtnAdd = (Button) LayoutInflater.from(this).inflate(R.layout.btn_add, null);
+        mLlAdd = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.flow_add, null);
 
-        mBtnAdd.setOnClickListener(new AddClickListen());
+        mLlAdd.setOnClickListener(new AddClickListen());
     }
 
     private void initList() {
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             mTagLayout.addView(view);
         }
         mTagLayout.addView(mEtInput);
-        mTagLayout.addView(mBtnAdd);
+        mTagLayout.addView(mLlAdd);
     }
 
     //添加标签
